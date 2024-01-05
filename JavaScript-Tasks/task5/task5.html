@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task5</title>
+    <style>
+        .props {
+            display: flex;
+        }
+
+        .txt {
+            border: 3px solid black;
+            width: 500px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="props">
+        <select name="fontFamily" id="fontFamily" onchange="myFunction()">
+            <option value="arial">Arial</option>
+            <option value="times new roman">Times New Roman</option>
+            <option value="courier new">Courier New</option>
+        </select>
+        <input type="number" id="fontSize" min="1" value="12" onchange="myFunction()">
+        <label>Italic</label><input type="checkbox" id="italic" onchange="myFunction()">
+        <label>Bold</label><input type="checkbox" id="bold" onchange="myFunction()">
+        <label>Underline</label><input type="checkbox" id="underline" onchange="myFunction()">
+    </div>
+    <div class="txt">
+        <p id="output" style="font-size: 12pt; font-family: Arial">quick brown fox jumps over the lazy dog</p>
+    </div>
+
+    <script>
+        function myFunction() {
+            const output = document.getElementById('output');
+            const selectedFont = document.getElementById('fontFamily').value;
+            const fontSize = document.getElementById('fontSize').value + 'pt';
+            const italic = document.getElementById('italic').checked ? 'italic' : 'normal';
+            const bold = document.getElementById('bold').checked ? 'bold' : 'normal';
+            const underline = document.getElementById('underline').checked ? 'underline' : 'none';
+
+            output.style.fontFamily = selectedFont;
+            output.style.fontSize = fontSize;
+            output.style.fontStyle = italic;
+            output.style.fontWeight = bold;
+            output.style.textDecoration = underline;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+body {
+  background-color: rgb(245, 245, 146);
+}
+
+div {
+  width: 75%;
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.div1,
+.div2 {
+  border: 1px solid black;
+}
+
+.div3,
+.div3 p {
+  color: red;
+  border: 2px dotted red;
+}
+.orangeTxt {
+  background-color: orange;
+}
+.lightYellowTxt {
+  background-color: rgb(221, 221, 118);
+}

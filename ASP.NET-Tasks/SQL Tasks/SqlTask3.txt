@@ -1,0 +1,105 @@
+--DDL
+CREATE DATABASE MessengerSystem;
+
+CREATE TABLE Users (
+    UserID INT PRIMARY KEY,
+    UserName VARCHAR(255) NOT NULL,
+    Password VARCHAR(255) NOT NULL,
+);
+
+CREATE TABLE Profiles (
+    UserID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(255),
+    Bio VARCHAR(MAX),
+    PhoneNumber VARCHAR(20),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
+
+CREATE TABLE Messages (
+    MessageID INT PRIMARY KEY,
+    SenderID INT,
+    ReceiverID INT,
+    MessageText VARCHAR(MAX),
+    FOREIGN KEY (SenderID) REFERENCES Users(UserID),
+    FOREIGN KEY (ReceiverID) REFERENCES Users(UserID)
+);
+
+CREATE TABLE Services (
+    ServiceID INT PRIMARY KEY,
+    ServiceName VARCHAR(255) NOT NULL,
+);
+
+CREATE TABLE UserServices (
+    UserID INT,
+    ServiceID INT,
+    PurchaseDate DATETIME,
+    PRIMARY KEY (UserID, ServiceID),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (ServiceID) REFERENCES Services(ServiceID)
+);
+
+CREATE TABLE Payments (
+    PaymentID INT PRIMARY KEY,
+    UserID INT,
+    ServiceID INT,
+    PaymentAmount DECIMAL(10, 2),
+    PaymentDate DATETIME,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (ServiceID) REFERENCES Services(ServiceID)
+);
+
+
+
+--DML
+INSERT INTO Users (UserID, UserName, Password) VALUES
+(1, 'pwicg', 'P@ssw0rd'),
+(2, 'ounayand', 'P@ssw0rd'),
+(3, 'shortcake', 'P@ssw0rd');
+
+INSERT INTO Profiles (UserID, FirstName, LastName, Email, Bio, PhoneNumber) VALUES
+(1, 'Rania', 'Shelbayeh', 'placewhereicango.rania@gmail.com', 'BIOOOOOO.', '00962791095442'),
+(2, 'Aya', 'Odat', 'ayaodat02@gmail.com', 'BIOOOOOO.', '00962791095443'),
+(3, 'Short', 'Cake', 'cake03strawberry@gmail.com', 'BIOOOOOO.', '00962791095444');
+
+INSERT INTO Messages (MessageID, SenderID, ReceiverID, MessageText) VALUES
+(1, 1, 2, 'Hello, how are you?'),
+(2, 2, 1, 'Hi, I am doing well. How about you?'),
+(3, 3, 1, 'Hey, cake here.');
+
+INSERT INTO Services (ServiceID, ServiceName) VALUES
+(1, 'Video Call'),
+(2, 'Voice Call'),
+(3, 'Share Screen');
+
+INSERT INTO UserServices (UserID, ServiceID, PurchaseDate) VALUES
+(1, 1, GETDATE()),
+(2, 2, GETDATE()),
+(3, 3, GETDATE());
+
+INSERT INTO Payments (PaymentID, UserID, ServiceID, PaymentAmount, PaymentDate) VALUES
+(1, 1, 1, 20.10, GETDATE()),
+(2, 2, 2, 41.00, GETDATE()),
+(3, 3, 3, 19.50, GETDATE());
+
+UPDATE Users SET Password = 'NewP@ssword' WHERE UserID = 1;
+UPDATE Profiles SET Bio = 'Updated BIO!' WHERE UserID = 2;
+UPDATE Messages SET MessageText = 'Updated message text.' WHERE MessageID = 3;
+UPDATE Services SET ServiceName = 'Premium Video Call' WHERE ServiceID = 1;
+UPDATE UserServices SET PurchaseDate = DATEADD(DAY, 3, GETDATE()) WHERE UserID = 2 AND ServiceID = 2;
+UPDATE Payments SET PaymentAmount = 30.00 WHERE PaymentID = 3;
+
+DELETE FROM Users WHERE UserID = 3;
+DELETE FROM Profiles WHERE UserID = 1;
+DELETE FROM Messages WHERE MessageID = 2;
+DELETE FROM Services WHERE ServiceID = 2;
+DELETE FROM UserServices WHERE UserID = 3 AND ServiceID = 3;
+DELETE FROM Payments WHERE PaymentID = 1;
+
+EXEC sp_rename 'UserServices', 'UserSubscriptions';
+
+EXEC sp_rename 'Profiles.Bio', 'AboutMe', 'COLUMN';
+
+ALTER TABLE Profiles
+    ALTER COLUMN PhoneNumber VARCHAR(15);

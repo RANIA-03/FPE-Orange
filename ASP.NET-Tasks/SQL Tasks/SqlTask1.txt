@@ -1,0 +1,56 @@
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100),
+    MobileNumber VARCHAR(20)
+);
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email, MobileNumber)
+VALUES
+    (1, 'Rania', 'Shelbayeh', 'rania03shelbayeh@gmail.com', '0791095442'),
+    (2, 'Sara', 'Shelbayeh', 'sara00shelbayeh@gmail.com', '0791095443'),
+    (3, 'Aya', 'Shelbayeh', 'aya98shelbayeh@gmail.com', '0791095444'),
+    (4, 'Alaa', 'Shelbayeh', 'alaa96shelbayeh@gmail.com', '0791095445')
+
+CREATE TABLE Orders (
+	OrderID INT PRIMARY KEY,
+	CustomerID INT,
+	OrderDate DATE,
+	TotalAmount DECIMAL(10, 2),
+	FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, TotalAmount)
+VALUES
+    (101, 1, '2023-02-02', 150.00),
+    (102, 2, '2023-03-03', 200.50),
+    (103, 3, '2023-04-04', 75.75),
+    (104, 4, '2023-05-05', 300.25);
+
+CREATE TABLE Products (
+    ProductID INT PRIMARY KEY,
+    ProductName VARCHAR(100),
+    Price DECIMAL(10, 2)
+);
+
+INSERT INTO Products (ProductID, ProductName, Price)
+VALUES
+    (501, 'Product1', 25.00),
+    (502, 'Product2', 30.50),
+    (503, 'Product3', 15.75),
+    (504, 'Product4', 50.25);
+
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Position VARCHAR(50)
+);
+
+INSERT INTO Employees (EmployeeID, FirstName, LastName, Position)
+VALUES
+    (1001, 'Tom', 'Smith', 'Manager'),
+    (1002, 'Alice', 'Johnson', 'Sales Associate'),
+    (1003, 'Bob', 'Williams', 'Warehouse Clerk'),
+    (1004, 'Sarah', 'Davis', 'Customer Service');

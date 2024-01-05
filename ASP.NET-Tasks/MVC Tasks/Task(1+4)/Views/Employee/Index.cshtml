@@ -1,0 +1,72 @@
+﻿@using Task_1_4_.Models
+@model Task_1_4_.Models.Employee
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-controller="Employee" asp-action="Add">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Birth Date
+            </th>
+            <th>
+               Marital Status
+            </th>
+            <th>
+               National Id
+            </th>
+             <th>
+               Department
+            </th>
+            <th>
+               Edit | Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var e in (List<Employee>)(ViewBag.Employees)) {
+            <tr>
+                <td>
+                    @e.Id
+                </td>
+                <td>
+                    @e.FirstName @e.LastName
+                </td>
+                <td>
+                     @e.Email
+                </td>
+                 <td>
+                     @e.Birthdate
+                </td>
+                <td>
+                     @e.MaritalStatus
+                </td> 
+                <td>
+                     @e.NationalId
+                </td>
+                <td>
+                     @e.Department.DepartmentName
+                </td>
+                <td>
+                    <a href="/Employee/Edit?Id=@e.Id">Edit</a> |
+                   <a href="/Employee/Delete?Id=@e.Id">Delete</a>
+                </td>
+            </tr>
+    }
+    </tbody>
+</table>

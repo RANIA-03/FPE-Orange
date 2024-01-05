@@ -1,0 +1,60 @@
+﻿@model Task_2_3_.Models.Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProductId" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                 <label for="formFile" class="control-label"></label>
+                 <input name="formFile" type="file" accept=".jpg, .jpeg, .png" class="form-control" />
+                 <span asp-validation-for="Photo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="existingImage" class="control-label">Existing Image</label>
+                @if (Model.Photo != null && Model.Photo.Length > 0)
+                {
+                    <img src="data:image/png;base64,@Convert.ToBase64String(Model.Photo)" alt="Existing Image" style="max-width: 100%;" />
+                }
+                else
+                {
+                    <p>No existing image</p>
+                }
+            </div>
+            <input type="hidden" name="ProductId" value="@Model.ProductId" />
+            <input type="hidden" name="Photo" value="@Model.Photo" />
+            <input type="hidden" name="PhotoName" value="@Model.PhotoName" />
+            <input type="hidden" name="contentType" value="@Model.contentType" />
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

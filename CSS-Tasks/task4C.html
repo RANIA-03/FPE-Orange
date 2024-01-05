@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4C</title>
+    <style>
+        body {
+            background-color: rgb(23, 173, 243);
+            display: grid;
+            place-content: center;
+        }
+
+        .cardContainer {
+            color: white;
+            text-align: center;
+        }
+
+        input,
+        textarea {
+            width: 75%;
+            margin: 5px;
+            border-radius: 10px;
+            border: 1px solid white;
+            padding: 10px;
+        }
+
+        input {
+            height: 30px;
+        }
+
+        .sendBtn {
+            background-color: rgb(28, 28, 127);
+            color: white;
+            font-size: larger;
+            border: 1px solid rgb(28, 28, 127);
+            border-radius: 10px;
+            width: 90px;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cardContainer">
+        <form action="">
+            <h2>Contact Us</h2>
+            <input type="text" name="fullName" id="fullName" placeholder="Full Name">
+            <input type="email" name="email" id="email" placeholder="Email">
+            <input type="email" name="email" id="email" placeholder="Email">
+            <input type="tel" name="telephone" id="telephone" placeholder="tel: XXX XXX XXXX">
+            <textarea placeholder="Your Message Here..." maxlength="100" rows="10"></textarea>
+            <br>
+            <div style="text-align: left; margin-left: 100px;">
+                <button class="sendBtn">Send</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

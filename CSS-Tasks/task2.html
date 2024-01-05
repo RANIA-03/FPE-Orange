@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* * {
+            margin: 0% 0.55%;
+        } */
+
+        .CenterContainer {
+            display: grid;
+            place-items: center;
+        }
+
+        .logoContainer img {
+            width: 10%;
+            margin-left: 20px;
+        }
+
+        .cardContainer {
+            background-color: rgb(255, 255, 255);
+            width: 310px;
+            height: 450px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 5px;
+        }
+
+        .cardContainer {
+            padding: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid gray;
+            border-radius: 4px;
+            box-sizing: border-box;
+
+        }
+
+        .inputContainer {
+            position: relative;
+            display: inline-block;
+        }
+
+        .inputContainer input {
+            width: 127%;
+        }
+
+        .end-text {
+            position: absolute;
+            right: -50px;
+            bottom: 20px;
+            color: blue;
+            cursor: pointer;
+        }
+
+        .cardContainer p {
+            font-size: small;
+        }
+
+        .link {
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signBtn1 {
+            border-radius: 50px;
+            width: 280px;
+            height: 50px;
+        }
+
+        .signBtn2 {
+            border-radius: 50px;
+            width: 280px;
+            height: 50px;
+            border: 1px solid gray;
+        }
+
+        hr {
+            width: 42%;
+            display: inline-block;
+        }
+
+        .footerContainer ul li {
+            color: gray;
+            font-weight: 500;
+            list-style-type: none;
+            display: inline-block;
+            align-items: center;
+            padding-left: 4%;
+        }
+
+        .footerContainer ul li img {
+            width: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .logoContainer img {
+                width: 20%;
+                margin-left: 10px;
+            }
+
+            .cardContainer {
+                width: 90%;
+            }
+
+            .inputContainer input {
+                width: 100%;
+            }
+
+            .signBtn1,
+            .signBtn2 {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <div class="logoContainer">
+        <img src="https://1000logos.net/wp-content/uploads/2023/01/LinkedIn-logo.png" alt="LinkedIn-logo">
+    </div>
+    <form action="">
+        <div class="CenterContainer">
+            <div class="cardContainer">
+                <h1>Sign in</h1>
+                <p>Stay updated on your professional world</p>
+                <input type="text" name="emailOrPhone" id="input1" placeholder="Email or Phone">
+                <div class="inputContainer">
+                    <input type="text" name="pws" id="input2" placeholder="Password">
+                    <div class="end-text">show</div>
+                </div><br>
+                <a href="forgotPws.html" target="_blank" class="link">Forgot password?</a>
+                <br>
+                <br>
+                <button type="button" class="btn btn-primary signBtn1">Sign in</button>
+                <div style="    display: flex;justify-content: center; align-items: center;">
+                    <hr>
+                    <span style="color: gray;">&nbsp;or&nbsp;</span>
+                    <hr>
+                </div>
+                <button type="button" class="btn btn-light signBtn2"><i class="fa fa-apple" aria-hidden="true"></i> Sign
+                    in
+                    with Apple</button>
+            </div>
+            <div class="JoinContainer">
+                <br>
+                <p>New to Linkedin? <a href="join.html" class="link">Join now</a></p>
+            </div>
+        </div>
+    </form>
+    <footer class="mt-auto footerContainer">
+        <ul>
+            <li><img src="https://1000logos.net/wp-content/uploads/2023/01/LinkedIn-logo.png" alt="LinkedIn-logo">
+                &copy; 2021</li>
+            <li>User Agreement</li>
+            <li>Privacy Policy</li>
+            <li>Community Guidelines</li>
+            <li>Cookie Policy</li>
+            <li>Copyright Policy</li>
+            <li>Send Feedback</li>
+            <li>Language</li>
+        </ul>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

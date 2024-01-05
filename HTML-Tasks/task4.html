@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+</head>
+
+<body>
+    <form>
+        <lable for="firstName">First Name:</lable><br>
+        <input type="text" id="firstName" name="firstName"><br>
+        <lable for="lastName">Last Name:</lable><br>
+        <input type="text" id="lastName" name="lastName"><br>
+        <lable for="email">Email:</lable><br>
+        <input type="email" id="mail" name="email"><br>
+
+        <br>
+        <br>
+
+        <h4>your Gender</h4>
+        <input type="radio" name="gender" value="male" id="male"> <label for="male">Male</label>
+        <input type="radio" name="gender" value="female" id="female">
+        <label for="female">Female</label><br>
+
+
+        <br>
+        <h4>Favorite Subject</h4>
+        <input type="checkbox" name="favoriteSubject" value="c++" id="c++"> <label for="c++">C++</label>
+        <input type="checkbox" name="favoriteSubject" value="java" id="java"> <label for="java">Java</label>
+        <input type="checkbox" name="favoriteSubject" value="c#" id="c#"> <label for="c#">C#</label>
+        <input type="checkbox" name="favoriteSubject" value="php" id="php"> <label for="php">PHP</label>
+        <input type="checkbox" name="favoriteSubject" value="sql" id="sql"> <label for="sql">Sql</label>
+
+        <p>Your City</p>
+        <label for="city">City </label><select name="city" id="city">
+            <option value="irbid">irbid</option>
+            <option value="amman">amman</option>
+            <option value="zarqa">zarqa</option>
+            <option value="tafelah">tafelah</option>
+        </select>
+        <br>
+        <br>
+
+        <label for="uploadImg">Upload Image:
+            <input type="file" name="uploadImg" id="uploadImg">
+        </label>
+
+        <br>
+        <br>
+
+
+        <label for="aboutYou">Write About yourself: </label><br><br>
+        <textarea placeholder="Write Here" rows="4" cols="30"></textarea>
+        <br><input type="submit" name="submit" id="submit">
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <form>
+        <table>
+            <tr>
+                <td><label for="name">Name:</label></td>
+                <td><input type="text" id="name"></td>
+            </tr>
+            <tr>
+                <td><label for="address">Address:</label></td>
+                <td><input type="text" id="address"></td>
+            </tr>
+            <tr>
+                <td><label for="city">City:</label></td>
+                <td><input type="text" id="city"></td>
+            </tr>
+            <tr>
+                <td><label for="state">State:</label></td>
+                <td><input type="text" id="state"></td>
+            </tr>
+            <tr>
+                <td><label for="zip">Zip:</label></td>
+                <td><input type="number" id="zip"></td>
+            </tr>
+            <tr>
+                <td><label for="magazine">Magazine:</label></td>
+                <td>
+                    <select id="magazine">
+                        <option value="1" selected>Newsweek</option>
+                        <option value="2">test</option>
+                        <option value="3">test</option>
+                        <option value="4">test</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="subscription">Subscription:</label></td>
+                <td><input type="radio" name="subscription" value="1year" id="1year"> <label for="1year">1 Year</label>
+                    <input type="radio" name="subscription" value="2years" id="2years">
+                    <label for="2years">2 Years</label><br>
+                </td>
+            </tr>
+
+            <tr>
+                <td><input type="submit" name="submit" id="submit" value="Send Your Order"></td>
+            </tr>
+        </table>
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+﻿@model Task_2_3_.Models.Category
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Category</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CategoryId" />
+            
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="formFile" class="control-label"></label>
+                <input name="formFile" type="file" accept=".jpg, .jpeg, .png" class="form-control" />
+                <span asp-validation-for="Photo" class="text-danger"></span>
+            </div>
+            
+            <!-- Display existing image -->
+            <div class="form-group">
+                <label>Existing Image</label>
+                @if (Model.Photo != null)
+                {
+                    <img src="data:image/png;base64,@Convert.ToBase64String(Model.Photo)" alt="Existing Product Image" style="max-width: 300px; max-height: 200px;" />
+                }
+                else
+                {
+                    <span>No Image Available</span>
+                }
+            </div>
+            <input type="hidden" name="CategoryId" value="@Model.CategoryId" />
+              <input type="hidden" name="Photo" value="@Model.Photo" />
+            <input type="hidden" name="PhotoName" value="@Model.PhotoName" />
+            <input type="hidden" name="contentType" value="@Model.contentType" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,14 @@
+C:\Users\rania\OneDrive\Desktop\learn\Orange\C#Tasks\ProblemSolvingTask\ProblemSolvingTask\bin\Debug\net6.0\ProblemSolvingTask.exe
+C:\Users\rania\OneDrive\Desktop\learn\Orange\C#Tasks\ProblemSolvingTask\ProblemSolvingTask\bin\Debug\net6.0\ProblemSolvingTask.deps.json
+C:\Users\rania\OneDrive\Desktop\learn\Orange\C#Tasks\ProblemSolvingTask\ProblemSolvingTask\bin\Debug\net6.0\ProblemSolvingTask.runtimeconfig.json
+C:\Users\rania\OneDrive\Desktop\learn\Orange\C#Tasks\ProblemSolvingTask\ProblemSolvingTask\bin\Debug\net6.0\ProblemSolvingTask.dll
+C:\Users\rania\OneDrive\Desktop\learn\Orange\C#Tasks\ProblemSolvingTask\ProblemSolvingTask\bin\Debug\net6.0\ProblemSolvingTask.pdb
+C:\Users\rania\OneDrive\Desktop\learn\Orange\C#Tasks\ProblemSolvingTask\ProblemSolvingTask\obj\Debug\net6.0\ProblemSolvingTask.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rania\OneDrive\Desktop\learn\Orange\C#Tasks\ProblemSolvingTask\ProblemSolvingTask\obj\Debug\net6.0\ProblemSolvingTask.AssemblyInfoInputs.cache
+C:\Users\rania\OneDrive\Desktop\learn\Orange\C#Tasks\ProblemSolvingTask\ProblemSolvingTask\obj\Debug\net6.0\ProblemSolvingTask.AssemblyInfo.cs
+C:\Users\rania\OneDrive\Desktop\learn\Orange\C#Tasks\ProblemSolvingTask\ProblemSolvingTask\obj\Debug\net6.0\ProblemSolvingTask.csproj.CoreCompileInputs.cache
+C:\Users\rania\OneDrive\Desktop\learn\Orange\C#Tasks\ProblemSolvingTask\ProblemSolvingTask\obj\Debug\net6.0\ProblemSolvingTask.dll
+C:\Users\rania\OneDrive\Desktop\learn\Orange\C#Tasks\ProblemSolvingTask\ProblemSolvingTask\obj\Debug\net6.0\refint\ProblemSolvingTask.dll
+C:\Users\rania\OneDrive\Desktop\learn\Orange\C#Tasks\ProblemSolvingTask\ProblemSolvingTask\obj\Debug\net6.0\ProblemSolvingTask.pdb
+C:\Users\rania\OneDrive\Desktop\learn\Orange\C#Tasks\ProblemSolvingTask\ProblemSolvingTask\obj\Debug\net6.0\ProblemSolvingTask.genruntimeconfig.cache
+C:\Users\rania\OneDrive\Desktop\learn\Orange\C#Tasks\ProblemSolvingTask\ProblemSolvingTask\obj\Debug\net6.0\ref\ProblemSolvingTask.dll

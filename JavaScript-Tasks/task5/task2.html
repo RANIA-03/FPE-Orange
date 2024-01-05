@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task2</title>
+</head>
+
+<body>
+
+    <select name="country" id="country" onchange="myFunction()">
+        <option>Select Country To show Flag</option>
+        <option value="jordan">Jordan</option>
+        <option value="kuwait">Kuwait</option>
+        <option value="palestine">Palestine</option>
+    </select>
+    <div class="myDiv"></div>
+
+    <script>
+        function myFunction() {
+            let c = document.getElementById("country").value;
+            let myDiv = document.querySelector(".myDiv");
+
+            if (c == "jordan")
+                myDiv.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Flag_of_Jordan.svg/1280px-Flag_of_Jordan.svg.png" width="200px" height="200px"/>';
+            else if (c == "kuwait")
+                myDiv.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Flag_of_Kuwait.svg/1280px-Flag_of_Kuwait.svg.png" width="200px" height="200px"/>';
+            else if (c == "palestine")
+                myDiv.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_Palestine.svg/1280px-Flag_of_Palestine.svg.png" width="200px" height="200px"/>';
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            background-color: rgb(2, 2, 73);
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        table,
+        td {
+            border: 1px solid black;
+        }
+
+        th {
+            background-color: rgb(157, 154, 154);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div onclick="myFunction()">
+        <h1>Click To show Table / Double Click to hide Table</h1>
+    </div>
+
+    <table style="display: none;">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Mobile</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="myTableBody">
+
+        </tbody>
+    </table>
+
+    <script>
+        function myFunction() {
+            let table = document.querySelector('table');
+            table.style.display = table.style.display === 'none' ? 'table' : 'none';
+        }
+
+        fetch('message.json')
+            .then(response => response.json())
+            .then(data => {
+                let tbody = document.getElementById('myTableBody');
+                tbody.innerHTML = '';
+                data.users.forEach(item => {
+                    let tr = document.createElement('tr');
+                    let td1 = document.createElement('td');
+                    let td2 = document.createElement('td');
+                    let td3 = document.createElement('td');
+                    td1.innerHTML = item.firstName;
+                    td2.innerHTML = item.phone;
+                    td3.innerHTML = item.email;
+
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+
+                    tbody.appendChild(tr);
+                });
+            });
+    </script>
+</body>
+
+</html>

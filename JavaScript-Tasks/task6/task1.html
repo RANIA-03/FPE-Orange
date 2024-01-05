@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task1</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 800px;
+        }
+
+        .myForm {
+            background-color: #D0A2F7;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px #b783e6;
+            padding: 10px;
+            border-radius: 8px;
+            width: 80%;
+            width: 500px;
+            box-sizing: border-box;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #333;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+            background-color: #D0A2F7;
+            box-shadow: 0 0 8px #560b98;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .gender,
+        .languages {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="myForm">
+        <form>
+            <div>
+                <h1>Fill in Your Info</h1>
+            </div>
+            <div>
+                <input type="text" placeholder="Full Name" id="fullName">
+            </div>
+            <div>
+                <input type="number" placeholder="Your Age" id="age">
+            </div>
+            <div class="gender">
+                <input type="radio" value="female" name="gender" id="femaleGender">
+                <label>Female&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="radio" value="male" name="gender" id="maleGender">
+                <label>Male</label>
+            </div>
+            <div>
+                <textarea name="description" id="description" cols="30" rows="10"
+                    placeholder="Write a Brief Description"></textarea>
+            </div>
+            <div>
+                <input type="text" placeholder="Your University" id="university">
+            </div>
+            <div>
+                <input type="text" placeholder="Your Major" id="major">
+            </div>
+            <div>
+                <label>Check your preferred languages (at least 3)</label>
+                <br>
+                <div class="languages">
+                    <input type="checkbox" value="c++" name="language">
+                    <label>C++</label>
+                    <input type="checkbox" value="java" name="language">
+                    <label>Java</label>
+                    <input type="checkbox" value="python" name="language">
+                    <label>Python</label>
+                    <input type="checkbox" value="c#" name="language">
+                    <label>C#</label>
+                </div>
+            </div>
+            <div>
+                <button type="button" onclick="saveInfo()">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function saveInfo() {
+            var fullName = document.getElementById('fullName').value;
+            var age = document.getElementById('age').value;
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            var description = document.getElementById('description').value;
+            var university = document.getElementById('university').value;
+            var major = document.getElementById('major').value;
+            var languages = [];
+            var checkedLanguages = document.querySelectorAll('input[name="language"]:checked');
+            checkedLanguages.forEach(function (i) {
+                languages.push(i.value);
+            });
+            var userData = {
+                fullName: fullName,
+                age: age,
+                gender: gender,
+                description: description,
+                university: university,
+                major: major,
+                languages: languages
+            };
+
+            localStorage.setItem('UserInformation', JSON.stringify(userData));
+            requestInfo(userData);
+        }
+
+        function requestInfo(userInfo) {
+            var container = document.createElement('div');
+            container.className = 'card';
+            var cardContent = `
+                <p>Name: ${userInfo.fullName}</p>
+                <p>Age: ${userInfo.age}</p>
+                <p>Gender: ${userInfo.gender}</p>
+                <p>Description: ${userInfo.description}</p>
+                <p>University: ${userInfo.university}</p>
+                <p>Major: ${userInfo.major}</p>
+                <p>Languages: ${userInfo.languages.join(', ')}</p>
+            `;
+            container.innerHTML = cardContent;
+            document.body.appendChild(container);
+        }
+    </script>
+</body>
+
+</html>

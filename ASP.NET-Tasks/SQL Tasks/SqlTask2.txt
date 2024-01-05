@@ -1,0 +1,56 @@
+CREATE DATABASE myCompany;
+
+CREATE TABLE Managers (
+    ManagerID INT PRIMARY KEY,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    SSN VARCHAR(11) NOT NULL,
+    Username VARCHAR(50) NOT NULL,
+    Password VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Departments (
+    DepartmentID INT PRIMARY KEY,
+    DepartmentName VARCHAR(50) NOT NULL,
+    ManagerID INT,
+    FOREIGN KEY (ManagerID) REFERENCES Managers(ManagerID)
+);
+
+CREATE TABLE Photos (
+    PhotoID INT PRIMARY KEY,
+    Photo VARBINARY(MAX),
+    PhotoType VARCHAR(10) 
+);
+
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Birthdate DATE NOT NULL,
+    PhoneNumber VARCHAR(20),
+    NationalID VARCHAR(20) NOT NULL,
+    MaritalStatus VARCHAR(20),
+    EntryDate DATE NOT NULL,
+    Password VARCHAR(50) NOT NULL,
+    DepartmentID INT NOT NULL,
+    PhotoID INT,
+    FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID),
+    FOREIGN KEY (PhotoID) REFERENCES Photos(PhotoID)
+);
+
+CREATE TABLE Tasks (
+    TaskID INT PRIMARY KEY,
+    Title VARCHAR(100) NOT NULL,
+    StartDate DATE NOT NULL,
+    DueDate DATE NOT NULL,
+    Description TEXT,
+    ImportanceLevel INT,
+    EmployeeID INT,
+    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)
+);
+
+CREATE TABLE Feedback (
+    FeedbackID INT PRIMARY KEY,
+    SenderEmail VARCHAR(100) NOT NULL,
+    Message VARCHAR(MAX) NOT NULL
+);

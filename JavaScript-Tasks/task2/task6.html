@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task6</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function isPandigital(x) {
+        let rania = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        while (x) {
+            let r = x % 10;
+            rania[r] = 1;
+            x = Math.floor(x / 10);
+        }
+        for (let i = 0; i < rania.length; i++) {
+            if (rania[i] === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    let x = +prompt("Enter Number");
+
+    alert(`${isPandigital(x)}`);
+</script>
+
+</html>

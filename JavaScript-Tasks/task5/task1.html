@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task1</title>
+    <style>
+        .txt {
+            border: 3px solid black;
+            display: inline-block;
+            padding: 15px 80px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p class="txt" onclick="myFunction()">Hello World!</p>
+    <script>
+        function myFunction() {
+            let txt = document.getElementsByClassName("txt")[0];
+            // txt.innerHTML = ":)";
+            txt.style.backgroundColor = "yellow";
+            txt.style.fontWeight = "bold";
+        }
+    </script>
+</body>
+
+</html>

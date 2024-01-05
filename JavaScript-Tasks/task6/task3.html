@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px;
+            width: 300px;
+        }
+
+        .firstPart {
+            background-color: #FFD0D0;
+            float: left;
+            height: 100vh;
+            width: 50%;
+        }
+
+        .secondPart {
+            background-color: #FF9EAA;
+            float: right;
+            height: 100vh;
+            width: 50%;
+        }
+
+        .secondPart form {
+            padding: 10px;
+            height: 30h;
+        }
+
+        .firstPart form {
+            padding: 10px;
+            height: 40vh;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="firstPart">
+        <div class="card">
+            <form id="registerForm">
+                <h1>Register Form :)</h1>
+                <br>
+                <table>
+                    <tr>
+                        <td><label for="firstName">First Name:</label></td>
+                        <td><input type="text" id="firstName" name="firstName" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="lastName">Last Name:</label></td>
+                        <td><input type="text" id="lastName" name="lastName" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email:</label></td>
+                        <td><input type="email" id="email" name="email" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password:</label></td>
+                        <td><input type="password" id="password" name="password" required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;"> <input type="submit" value="Register"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div class="secondPart">
+        <div class="card">
+            <form id="loginForm">
+                <h1>Login Form :)</h1>
+                <br>
+                <table>
+                    <tr>
+                        <td><label for="loginEmail">Email:</label></td>
+                        <td><input type="email" id="loginEmail" name="loginEmail" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="loginPassword">Password:</label></td>
+                        <td><input type="password" id="loginPassword" name="loginPassword" required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;"> <input type="submit" value="Login"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            let firstName = document.getElementById('firstName').value;
+            let lastName = document.getElementById('lastName').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            let user = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: password
+            };
+            localStorage.setItem('user', JSON.stringify(user));
+            alert('Registration Successful :)');
+        });
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            let loginEmail = document.getElementById('loginEmail').value;
+            let loginPassword = document.getElementById('loginPassword').value;
+            let storedUser = localStorage.getItem('user');
+            if (storedUser) {
+                let user = JSON.parse(storedUser);
+                if (loginEmail === user.email && loginPassword === user.password) {
+                    alert('Login Successful :)');
+                } else {
+                    alert('Invalid email or password. Try again :(');
+                }
+            } else {
+                alert('No user found. You can register :(');
+            }
+        });
+    </script>
+</body>
+
+</html>

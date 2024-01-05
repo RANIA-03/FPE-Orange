@@ -1,0 +1,87 @@
+﻿@using Task_1_4_.Models
+@model Task_1_4_.Models.Employee
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Add</h1>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" action="/Employee/Edited?Id=@Model.Id">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" value="@Model.FirstName"/>
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" value="@Model.LastName"/>
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" value="@Model.Email"/>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" value="@Model.PhoneNumber"/>
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+    <label asp-for="Birthdate" class="control-label"></label>
+    <input asp-for="Birthdate" class="form-control" type="datetime-local" value="@Model.Birthdate.ToString("yyyy-MM-ddTHH:mm")" />
+    <span asp-validation-for="Birthdate" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="EntryDate" class="control-label"></label>
+    <input asp-for="EntryDate" class="form-control" type="datetime-local" value="@Model.EntryDate.ToString("yyyy-MM-ddTHH:mm")" />
+    <span asp-validation-for="EntryDate" class="text-danger"></span>
+</div>
+             <div class="form-group">
+                <label asp-for="NationalId" class="control-label"></label>
+                <input asp-for="NationalId" class="form-control" value="@Model.NationalId"/>
+                <span asp-validation-for="NationalId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Photo" class="control-label"></label>
+                <input asp-for="Photo" class="form-control"  value="@Model.Photo"/>
+                <span asp-validation-for="Photo" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                  <label asp-for="DepartmentId" class="form-label">Student:</label>
+                            <select asp-for="DepartmentId" class="selectpicker form-control" data-style="py-0">
+                                <option>Select Objective</option>
+                                @foreach (var d in (List<Department>)(ViewBag.Departments))
+                                {
+                                    if (@d.DepartmentId == @Model.DepartmentId)
+                                    {
+                                        <option selected value="@d.DepartmentId">@d.DepartmentName</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@d.DepartmentId">@d.DepartmentName</option>
+                                    }
+                                }
+                            </select>
+                            <span asp-validation-for="DepartmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Edit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

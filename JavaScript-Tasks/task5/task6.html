@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task6</title>
+    <style>
+        #myBox {
+            width: 250px;
+            height: 250px;
+            background: blue;
+            border: 3px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="myBox"></div>
+</body>
+<script>
+    function changeColor() {
+        var arr = ["pink", "lightblue", "purple", "orange", "red"];
+        document.getElementById("myBox").style.background = arr[Math.floor(Math.random() * arr.length)];
+    }
+    setInterval(changeColor, 500);
+</script>
+
+</html>

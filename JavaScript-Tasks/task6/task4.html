@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task4</title>
+    <style>
+        .greenBg {
+            background: green;
+        }
+
+        .redBg {
+            background: red;
+        }
+
+        .yellowBg {
+            background: yellow;
+        }
+
+        table,
+        td {
+            border: 1px solid black;
+        }
+
+        p {
+            display: inline;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form action="">
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name">
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email">
+            <label for="mobile">Mobile: </label>
+            <input type="text" id="mobile" name="mobile">
+            <input type="button" value="Click On Me to Print" onclick="myFunction()">
+        </form>
+        <hr>
+        <div id="display"></div>
+        <div>
+            <table class="table"></table>
+        </div>
+    </div>
+    <script>
+        function myFunction() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let mobile = document.getElementById("mobile").value;
+            let display = document.getElementById("display");
+            display.innerHTML = "";
+            display.innerHTML += `<p class="greenBg">${name}</p>`;
+            display.innerHTML += `<p class="redBg">${email}</p>`;
+            display.innerHTML += `<p class="yellowBg">${mobile}</p><hr>`;
+
+            let table = document.querySelector(".table");
+            table.innerHTML += `<tr><td>${name}</td><td>${email}</td><td>${mobile}</td></tr>`;
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("mobile").value = "";
+        }
+    </script>
+</body>
+
+</html>

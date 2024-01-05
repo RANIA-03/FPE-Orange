@@ -1,0 +1,56 @@
+﻿@using Task_1_4_.Models
+@model Task_1_4_.Models.Manager
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-controller="Manager" asp-action="Add">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                SSN
+            </th>
+            <th>
+                Edit | Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in (List<Manager>)(ViewBag.Managers))
+        {
+            <tr>
+                <td>
+                    @m.Id
+                </td>
+                <td>
+                    @m.FirstName @m.LastName
+                </td>
+                <td>
+                    @m.Email
+                </td>
+
+                <td>
+                    @m.SSN
+                </td>
+                <td>
+                    <a href="/Manager/Edit?Id=@m.Id">Edit</a> |
+                    <a href="/Manager/Delete?Id=@m.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

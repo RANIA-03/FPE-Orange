@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 4B</title>
+    <style>
+        body {
+            background-color: skyblue;
+            display: grid;
+            height: 100vh;
+            place-items: center;
+
+        }
+
+        .cardContainer {
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+            border-radius: 30px;
+            height: 500px;
+            width: 25%;
+            text-align: center;
+        }
+
+        h1 {
+            text-transform: uppercase;
+
+        }
+
+        h1,
+        p,
+        label {
+            color: rgb(41, 78, 148);
+        }
+
+        .inputContainer {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .inputContainer * {
+            margin: 10px;
+        }
+
+        input {
+            width: 95%;
+            border: 1px solid rgb(144, 214, 245);
+            border-radius: 10px;
+            height: 30px;
+        }
+
+        .registerBtn {
+            color: white;
+            background-color: rgb(144, 214, 245);
+            width: 35%;
+            height: 35px;
+            border-radius: 10px;
+            border: 1px solid rgb(144, 214, 245);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container cardContainer">
+        <h1>codewithrandom</h1>
+        <p>Thank you for Being with me</p>
+        <form class="inputContainer">
+            <label>Name<br><input type="text" name="name" id="name"><br></label>
+            <label>E-mail<br><input type="email" name="email" id="email"><br></label>
+            <label>Password<br><input type="password" name="pws" id="password1"><br></label>
+            <label>Repeat password<br><input type="password" name="confrimPws" id="password2"><br></label>
+        </form>
+        <button class="registerBtn">Register</button>
+
+    </div>
+</body>
+
+</html>
